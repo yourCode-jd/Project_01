@@ -1,7 +1,11 @@
-import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { React } from "react";
+import { Outlet, Link, useLocation } from "react-router-dom";
 
 export default function Header() {
+  const location = useLocation();
+  const { pathname } = location;
+  console.log(location);
+  const splitLocation = pathname.split("/");
   return (
     <>
       <div className="header_outer">
@@ -10,19 +14,19 @@ export default function Header() {
             <div className="logo">fashion</div>
             <nav className="navbar">
               <ul className="navbar-nav">
-                <li className="nav-item">
+                <li className={splitLocation[1] === "" ? "active" : ""}>
                   <Link to="/">Home</Link>
                 </li>
-                <li className="nav-item">
+                <li className={splitLocation[1] === "About" ? "active" : ""}>
                   <Link to="/About">About</Link>
                 </li>
-                <li className="nav-item">
+                <li className={splitLocation[1] === "Services" ? "active" : ""}>
                   <Link to="/Services">Services</Link>
                 </li>
-                <li className="nav-item">
+                <li className={splitLocation[1] === "Blogs" ? "active" : ""}>
                   <Link to="/Blogs">Blogs</Link>
                 </li>
-                <li className="nav-item">
+                <li className={splitLocation[1] === "Contact" ? "active" : ""}>
                   <Link to="Contact">Contact</Link>
                 </li>
               </ul>
@@ -46,7 +50,12 @@ export default function Header() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M2.832 4.387h.511c.86 0 1.618.56 1.87 1.381l3.065 9.958a1.96 1.96 0 0 0 1.87 1.381h6.963c.826 0 1.563-.518 1.842-1.295l2.04-5.68c.686-1.913-.731-3.928-2.763-3.928h-7.57"></path>
+                <path
+                  d="M2.832 4.387h.511c.86 0 1.618.56 1.87 1.381l3.065 9.958a1.96 1.96 0 0 0 1.87 1.381h6.963c.826 0 1.563-.518 1.842-1.295l2.04-5.68c.686-1.913-.731-3.928-2.763-3.928h-7.57"
+                  stroke="#fff"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                ></path>
                 <circle cx="10.171" cy="20.532" r="1.468" fill="#fff"></circle>
                 <circle cx="17.02" cy="20.532" r="1.468" fill="#fff"></circle>
               </svg>
