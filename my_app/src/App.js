@@ -6,11 +6,13 @@ import Services from "./Pages/Services";
 import Contact from "./Pages/Contact";
 import Navbar from "./Components/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Banner from "./Components/Banner";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+      <Banner />
         <Routes>
           <Route path="/" element={<Navbar />}>
             <Route index element={<Home />} />
